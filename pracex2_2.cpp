@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
+#include <string>
 using namespace std;
 
 void sort(float x[], int N){
@@ -18,16 +19,20 @@ void sort(float x[], int N){
 }
 
 int main(){
-	int i=0;
-	float A[]= {};
-	ifstream source("score1.txt");
+	float A[20] = {};
+	int i = 0;
+	ifstream source("score2.txt");
 	string line;
 	while(getline(source,line)){
-	A[i] = atof(line.c_str());
-	i++;
+		A[i] = atof(line.c_str());
+		i++;
 	}
-	int N = sizeof(A)/sizeof(A[0]);
-	sort(A,N);
+	ofstream dest("rank.txt");
+	for(int i = 0; i < 20;i++){
+		dest << A[i] << " = ";
+		sort(A,20);
+		dest << A[i] << "\n";
+	}
+	dest.close();
 	return 0;
 }
-
