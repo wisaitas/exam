@@ -3,8 +3,15 @@ using namespace std;
 
 template <typename T>
 int countIf(T arr[],int length,T target){
-	//Write your code here
-
+	int j=0;
+	for(int i = 0;i<length;i++){
+		if(arr[i] == target||target == 0){
+			j++;
+			i++;
+		}
+		i++;
+	}
+	return j;
 }
 
 
